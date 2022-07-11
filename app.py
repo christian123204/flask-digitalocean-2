@@ -20,9 +20,11 @@ def index():
 @app.route('/post', methods=['POST'])
 def post():
     name = request.json.get("name", None)
+    print(name)
     if name:
         user = User(name = name)
         db.session.add(user)
         db.session.commit()
+        return 'good request!'
     else:
         return 'bad request!', 500
