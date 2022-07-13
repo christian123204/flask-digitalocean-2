@@ -6,7 +6,7 @@ from flask_login import LoginManager
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://nextjs-test-six-sandy.vercel.app/"]}})
+CORS(app, resources={r"/*": {"origins": ["localhost:3000", "nextjs-test-six-sandy.vercel.app/"]}})
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kxpth4fRVHpHJabGAHYp@database-test-1.ckn5btyj4l8v.eu-north-1.rds.amazonaws.com:5432/postgres'
 db = SQLAlchemy(app)
 
