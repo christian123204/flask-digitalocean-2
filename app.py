@@ -1,15 +1,19 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 app = Flask(__name__)
-CORS(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+CORS(app, resources={"/*": {"origins": "https://nextjs-test-six-sandy.vercel.app/"}})
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:kxpth4fRVHpHJabGAHYp@database-test-1.ckn5btyj4l8v.eu-north-1.rds.amazonaws.com:5432/postgres'
 db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+
 
 # pw : kxpth4fRVHpHJabGAHYp
 
